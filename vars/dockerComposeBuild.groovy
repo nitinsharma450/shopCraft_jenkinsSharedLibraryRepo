@@ -1,5 +1,11 @@
-def call(){
-echo 'building docker container'
- sh docker compose down && docker compose up --build
-echo 'container build successfully'
+def call() {
+    echo 'Building Docker container...'
+
+    sh '''
+        docker compose down || true
+        docker compose up --build -d
+    '''
+
+    echo 'Container built successfully.'
 }
+
