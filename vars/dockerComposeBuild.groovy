@@ -1,8 +1,9 @@
 def call() {
     echo 'Building Docker container...'
+     echo 'removing container'
 
     sh '''
-       echo 'removing container'
+      
         docker compose down || true
         docker compose up --build -d
     '''
